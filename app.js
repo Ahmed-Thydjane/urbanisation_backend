@@ -10,17 +10,16 @@ const cookieParser = require('cookie-parser');
 
 app.use(cookieParser());
 app.use(bodyparser.json());
-app.use(cors({origin:'http://127.0.0.1:4200',credentials: true}));
+app.use(cors({origin:'*',credentials: true}));
 
 /*URL de la base de donne*/
 const db_url='mongodb+srv://cheick:3AXse281qibWcFVL@cluster0.f51yr.mongodb.net/vhome?retryWrites=true&w=majority';
-const port=process.env.PORT || 3000;
-;
+const PORT = process.env.PORT || 3000;
 
 
 /*La connection se fait avec ORM mongoose */
 mongoose.connect(db_url,{UseNewUrlParser: true})
-.then((result)=>app.listen(port, ()=>console.log("**** db connected then connection on socket 3000 ****")))
+.then((result)=>app.listen(PORT, ()=>console.log("**** db connected then connection on socket :",PORT)))
 .catch((err)=>console.log(err)) ;
 
 
