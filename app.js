@@ -14,7 +14,8 @@ app.use(cors({origin:'http://127.0.0.1:4200',credentials: true}));
 
 /*URL de la base de donne*/
 const db_url='mongodb+srv://cheick:3AXse281qibWcFVL@cluster0.f51yr.mongodb.net/vhome?retryWrites=true&w=majority';
-const port=3000;
+const port=process.env.PORT || 3000;
+;
 
 
 /*La connection se fait avec ORM mongoose */
